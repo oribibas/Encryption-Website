@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encryption Application</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" />
+
+    <style>
+        .alert{
+            background: green;
+            padding: 8rem;
+            border-radius: 5px;
+            color: white;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alert" style="padding-bottom: 0px; padding-top: 3px;
+        border-radius: 5px"></div>
+        <h4 style="padding-top: 15px">
+            Text Encryption & Decryption Online Calculator
+        </h4>
+        <p style="padding-bottom: 30px;">
+            Choose between various text encryption algorithms, input your
+            plaintext, and the calculator will take care of the rest.
+        </p>
+    </div>
+
+    <!-- Form -->
+
+    <form action="/send" method="POST">
+    <div class="container">
+        
+        <label for="Plain text">Text:</label>
+        <input
+        type="text"
+        placeholder="Plain text"
+        class="u-full-width"
+        name="plaintext"
+        id="plaintext"
+        spellcheck="false"
+        />
+
+
+        <label for="Algorithm">Algorithm</label>
+        <select class="u-full-width" id="algorithm" onchange="cipherAlgorithmSelection()">
+            <option value="selectcipher">--Select Algorithm--</option>
+            <option value="xorcipher">XOR Cipher</option>
+            <option value="caesarcipher">Caesar Cipher</option>
+            <option value="vigenerecipher">Vigenere Cipher</option>
+            <option value="hillcipher">Hill Cipher</option>
+        </select>
+
+        <div id="xor">
+        </div>
+
+        <div id="vigenere">     
+        </div>
+
+        <div id="caesar">
+        </div>
+
+        <div id="hill">
+        </div>
+
+        <input type="submit" value="Encrypt" id="encrypt_button"/>
+        <input type="submit" value="Decrypt" id="decrypt_button"/>
+
+        <div class="alert" id="outputBox" style="padding-top: 100px;">
+            <p id="output"></p>   
+        </div>
+        
+    </div>
+    </form>
+          
+    <script src="static/htmlsupport.js"></script>
+</body>
+</html>
